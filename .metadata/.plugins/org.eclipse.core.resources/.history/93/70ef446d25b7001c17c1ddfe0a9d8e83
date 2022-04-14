@@ -1,0 +1,27 @@
+package com.collection.linkedList;
+
+
+class Node{
+	int data;
+	Node next;
+	Node(int x){
+		this.data=x;
+		next=null;
+	}
+}
+public class demo1 {
+	public static void main(String[] args) {
+Node head = new Node(50);
+Node test1 = new Node(80);
+Node test2  = new Node(90);
+Node test3 = new Node(60);
+
+head.next=test1;
+test1.next=test2;
+test2.next=test3;
+test3.next=null;
+
+System.out.println(head);
+	}
+
+}

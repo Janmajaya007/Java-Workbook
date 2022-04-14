@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class t56 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		String s=sc.next();
+		int d=sc.nextInt();
+		int l=s.length();
+		answer(l,d,s);
+
+
+
+	}
+
+	private static void answer(int l, int d, String s) {
+		// TODO Auto-generated method stub
+		String left=s.substring(0,d);
+		String right=s.substring((s.length()-d),s.length());
+		String leftrotate=s.substring(d)+left;
+		String rightrotate=right+s.substring(l-d) ;
+		System.out.println(leftrotate);
+		System.out.println(rightrotate);
+
+	}
+
+}

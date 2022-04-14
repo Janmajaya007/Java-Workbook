@@ -1,0 +1,9 @@
+import java.util.Scanner;
+
+public class rrrr {
+ 
+	public static void main(String[] args) {
+		byte b1 = 5, b2 = 2;
+		byte b = b1 % b2;
+		System.out.println(b);
+}}

@@ -1,0 +1,68 @@
+package com.collection.linkedList;
+
+
+class Node{
+	int data;
+	Node next;
+	Node(int x){
+		this.data=x;
+		next=null;
+	}
+}
+public class demo1 {
+	public static void main(String[] args) {
+Node head = new Node(50);
+Node test1 = new Node(80);
+Node test2  = new Node(90);
+Node test3 = new Node(60);
+
+head.next=test1;
+test1.next=test2;
+test2.next=test3;
+test3.next=null;
+System.out.println("The original Linkedlist");
+printList(head);
+System.out.println("Print the middle Node");
+middleNode(head);
+System.out.println("The reverse linkedlist");
+Node reverse=resverseList(head);
+printList(reverse);
+
+	}
+	public static void middleNode(Node head) {
+		
+		Node slow_ptr = head;
+        Node fast_ptr = head;
+         
+            while (fast_ptr != null && fast_ptr.next != null)
+            {
+                fast_ptr = fast_ptr.next.next;
+                slow_ptr = slow_ptr.next;
+            }
+            System.out.println("The middle element is [" +
+                                slow_ptr.data + "] \n");
+	}
+	//Method to reverse the linkedlist
+	public static Node resverseList(Node head) {
+		Node cur=head;
+		Node prev=null;
+		while(cur!=null) {
+			Node temp=cur.next;
+			cur.next=prev;
+			prev=cur;
+			cur=temp;
+		}
+		return prev;
+	}
+   //Method to traverse through the Linkedlist
+	public static void printList(Node head) {
+		
+		Node curr=head;
+		while(curr!=null) {
+			System.out.print(curr.data+" ");
+			curr=curr.next;
+			
+		}
+		System.out.println();
+	}
+}

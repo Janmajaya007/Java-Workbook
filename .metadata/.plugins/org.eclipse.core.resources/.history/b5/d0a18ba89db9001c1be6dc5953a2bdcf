@@ -1,0 +1,41 @@
+package com.collection.linkedList.circularLinklist;
+
+class Node{
+	int data;
+	Node next;
+	Node(int data){
+		this.data=data;
+		next=null;
+	}
+}
+public class demo1 {
+	public static void main(String[] args) {
+		
+		Node head = new Node(50);
+		Node test1= new Node(40);
+		Node test2= new Node(30);
+		Node test3= new Node(20);
+		Node test4= new Node(10);
+		head.next=test1;
+		test1.next=test2;
+		test2.next=test3;
+		test3.next=test4;
+		test4.next=head;
+		
+		printCircularLinkedList(head);
+	}
+
+	public static void printCircularLinkedList(Node head) {
+		// TODO Auto-generated method stub
+		if(head== null) {
+			return ;
+		}
+		System.out.print(head.data+" ");
+		
+		for(Node curr=head.next; curr!=head; curr=curr.next) {
+			System.out.print(curr.data+" ");
+		}
+		System.out.println();
+	}
+
+}

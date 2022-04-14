@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class find_duplicates {
+	 public static ArrayList<Integer> duplicates(int arr[], int n) {
+	        ArrayList<Integer> fre=new ArrayList<>();
+	        int c=0; int t=-1;
+	         for(int i=0;i<n;i++){
+	             for(int j=0;j<n;j++){
+	                 if(arr[i]==arr[j]){
+	                     c++;
+	                     if(c>=2){
+	                         fre.add(arr[i]);
+	                     }
+	                 }
+	             }
+	         }
+	         
+	         if(fre.size()==0) {
+	          fre.add(t);
+	         }
+	         
+	          return fre;
+	    }
+public static void main(String[]args) {
+	Scanner sc=new Scanner(System.in);
+	int n=sc.nextInt();
+	
+	int arr []=  new int[n];
+	for(int i=0;i<n;i++) {
+		arr[i]=sc.nextInt();
+	}
+	
+	System.out.println(duplicates(arr, n));
+}
+}

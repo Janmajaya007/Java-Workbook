@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class rrrr {
+	 
+	public static void main(String[] args) {
+		double d1 = Double.NaN;		
+		double d2 = d1;
+		
+		if(d1 == d2)
+			System.out.println("Equal");
+		else
+			System.out.println("Not Equal");
+}}

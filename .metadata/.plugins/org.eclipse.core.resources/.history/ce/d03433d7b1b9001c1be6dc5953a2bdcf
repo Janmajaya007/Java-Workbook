@@ -1,0 +1,123 @@
+package com.collection.linkedList.circularLinklist;
+
+class Node {
+	int data;
+	Node next;
+
+	Node(int data) {
+		this.data = data;
+		next = null;
+	}
+}
+
+public class demo1 {
+	public static void main(String[] args) {
+		Node head = new Node(10);
+		Node test1 = new Node(20);
+		Node test2 = new Node(30);
+		Node test3 = new Node(40);
+		Node test4 = new Node(50);
+		head.next = test1;
+		test1.next = test2;
+		test2.next = test3;
+		test3.next = test4;
+		test4.next = head;
+		
+		System.out.println("This is our CircularLinkedList");
+		printCircularLinkedList(head);
+		System.out.println();
+		System.out.println("This is our new CircularLinkedList after adding new head");
+		int newHead = 5;
+		head = insertAtBeginning(head, newHead);
+		printCircularLinkedList(head);
+		System.out.println();
+		System.out.println("This is our new CircularLinkedList after adding new tail");
+		int newTail = 60;
+		head = insertAtEnd(head, newTail);
+		printCircularLinkedList(head);
+		System.out.println();
+		System.out.println("This is our new CircularLinkedList after deleting the tail");
+		head = deletFromEnd(head);
+		printCircularLinkedList(head);
+		System.out.println("This is our new CircularLinkedList after deleting the head");
+		head = deletFromHead(head);
+		printCircularLinkedList(head);
+	}
+	//Method to delete node from head of the circularLinkedlist
+public static Node deletFromHead(Node head) {
+
+	if (head == null) {
+		return null;
+	}
+	Node curr = head;
+
+	while (curr.next != head) {
+		curr = curr.next;
+	}
+	curr.next=head.next;
+	
+	return head;
+	}
+//Method to delete the node from end of circularLinkedList
+	public static Node deletFromEnd(Node head) {
+
+		if (head == null) {
+			return null;
+		}
+		Node curr = head;
+
+		while (curr.next.next != head) {
+			curr = curr.next;
+		}
+		curr.next=head;
+		
+		return head;
+	}
+	//Method to add new Element at the  end of the circularLinkedList
+	public static Node insertAtEnd(Node head, int newTail) {
+		Node temp = new Node(newTail);
+		if (head == null) {
+			temp = temp.next;
+			return temp;
+		}
+		Node curr = head;
+		while (curr.next != head) {
+			curr = curr.next;
+		}
+		curr.next = temp;
+		temp.next = head;
+		return head;
+	}
+
+	// Method to add new Element at the beginning of circularLinkedList
+	public static Node insertAtBeginning(Node head, int newHead) {
+
+		Node temp = new Node(newHead);
+		if (head == null) {
+			temp.next = temp;
+			return temp;
+		}
+
+		Node curr = head;
+		while (curr.next != head) {
+			curr = curr.next;
+		}
+		curr.next = temp;
+		temp.next = head;
+
+		return temp;
+	}
+
+// Method to print the circularLinkedList
+	public static void printCircularLinkedList(Node head) {
+		if (head == null) {
+			return;
+		}
+		System.out.print(head.data + " ");
+		for (Node curr = head.next; curr != head; curr = curr.next) {
+			System.out.print(curr.data + " ");
+		}
+		System.out.println();
+	}
+
+}
